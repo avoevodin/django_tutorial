@@ -6,3 +6,4 @@
 *.pyc
 *.egg-info
 __pychache__/
+db.sqlite3
