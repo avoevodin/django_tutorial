@@ -23,5 +23,26 @@ class QuestionAdmin(admin.ModelAdmin):
     ]
 
 
+class ChoiceAdmin(admin.ModelAdmin):
+    fields = [
+        'id', 'question', 'choice_text', 'votes',
+    ]
+    readonly_fields = [
+        'id',
+    ]
+    list_display = [
+        'id', 'question', 'choice_text', 'votes',
+    ]
+    list_display_links = [
+        'id', 'choice_text',
+    ]
+    search_fields = [
+        'choice_text',
+    ]
+    list_filter = [
+        'question__question_text',
+    ]
+
+
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Choice)
+admin.site.register(Choice, ChoiceAdmin)
