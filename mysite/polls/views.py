@@ -40,5 +40,5 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponsePermanentRedirect(reverse(
             'polls:results',
-            args=(question.id,)
+            args=(question.id,),
         ))
