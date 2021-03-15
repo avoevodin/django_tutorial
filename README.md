@@ -46,4 +46,13 @@ python3 manage.py createsuperuser
     1. Go to the browser and type '127.0.0.1:8000/admin'
     2. Login
     3. Create objects
+* Run tests with coverage: 
+```shell
+coverage run --source='.' manage.py test polls
+```
+* Get report in html of coverage tests:
+```shell
+coverage html
+open htmlcov/index.html
+```
 * Profit!
