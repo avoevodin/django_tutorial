@@ -1,8 +1,8 @@
-from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponseRedirect
 from .models import Question, Choice
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from django.db.models import F
+from django.db.models import F, Count
 from django.views import generic
 from django.utils import timezone
 
@@ -18,7 +18,6 @@ class IndexView(generic.ListView):
         """
         return Question.objects.filter(
             pub_date__lte=timezone.now(),
-            choice__isnull=False,
         ).order_by('-pub_date')[:5]
 
 
@@ -31,8 +30,7 @@ class DetailView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(
-            pub_date__lte=timezone.now(),
-            choice__isnull=False,
+            pub_date__lte=timezone.now()
         )
 
 
@@ -45,8 +43,7 @@ class ResultsView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(
-            pub_date__lte=timezone.now(),
-            choice__isnull=False
+            pub_date__lte=timezone.now()
         )
 
 
@@ -67,7 +64,7 @@ class ResultsVotesView(generic.View):
             # Always returns an HTTPResponseRedirect after successfully dealing
             # with POST data. This prevents data from being posted twice if a
             # user hits the Back button.
-            return HttpResponsePermanentRedirect(reverse(
+            return HttpResponseRedirect(reverse(
                 'polls:results',
                 args=(question.id,),
             ))
