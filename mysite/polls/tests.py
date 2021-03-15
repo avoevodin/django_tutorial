@@ -214,7 +214,6 @@ class QuestionDetailViewTests(TestCase):
         but without any choices returns a 404 not found.
         """
         past_question = create_question(question_text='Past Question.', days=-5)
-        create_choice(past_question, 'Choice text.')
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
@@ -249,7 +248,6 @@ class QuestionResultsViewTests(TestCase):
         but without any choices returns a 404 not found.
         """
         past_question = create_question(question_text='Past Question.', days=-5)
-        create_choice(past_question, 'Choice text.')
         url = reverse('polls:results', args=(past_question.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
