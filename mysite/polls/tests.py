@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
 
-from .models import Question
+from .models import Question, Choice
 
 
 def create_question(question_text, days):
@@ -15,6 +15,13 @@ def create_question(question_text, days):
     """
     time = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text, pub_date=time)
+
+
+def create_choice(question, choice_text):
+    """
+    Create a choice for selected question and choice text.
+    """
+    return Choice.objects.create(question=question, choice_text=choice_text)
 
 
 class QuestionModelTests(TestCase):
@@ -63,11 +70,26 @@ class QuestionIndexViewTests(TestCase):
         Question with a pub_date in the past are displayed on the
         index page.
         """
-        create_question(question_text="Past question.", days=-30)
+        past_question = create_question(question_text="Past question.", days=-30)
+        create_choice(past_question, choice_text='Choice text.')
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'],
             ['Past question.']
+        )
+
+    def test_past_question_without_choice(self):
+        """
+        Question with a pub_date in the past without choices
+        aren't displayed on the index page.
+        """
+        past_question_1 = create_question(question_text='Past question 1.', days=-5)
+        create_choice(past_question_1, choice_text='Past question 1 choice 1.')
+        create_question(question_text='Past question 2.', days=-5)
+        response = self.client.get(reverse('polls:index'))
+        self.assertQuerysetEqual(
+            response.context['latest_question_list'],
+            ['Past question 1.']
         )
 
     def test_future_question(self):
@@ -75,7 +97,8 @@ class QuestionIndexViewTests(TestCase):
         Questions with a pub_date in the future aren't displayed on the
         index page.
         """
-        create_question(question_text="Future question.", days=30)
+        future_question = create_question(question_text="Future question.", days=30)
+        create_choice(future_question, choice_text='Choice text.')
         response = self.client.get(reverse('polls:index'))
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
@@ -85,8 +108,10 @@ class QuestionIndexViewTests(TestCase):
         Even if both past and future questions exist, only past questions
         are displayed.
         """
-        create_question(question_text="Past question.", days=-30)
-        create_question(question_text="Future question.", days=30)
+        past_question = create_question(question_text="Past question.", days=-30)
+        create_choice(past_question, choice_text='Choice text 1.')
+        future_question = create_question(question_text="Future question.", days=30)
+        create_choice(future_question, choice_text='Choice text 2.')
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'],
@@ -97,8 +122,26 @@ class QuestionIndexViewTests(TestCase):
         """
         The questions index page may display multiple questions.
         """
-        create_question(question_text='Past question 1.', days=-20)
-        create_question(question_text='Past question 2.', days=-24)
+        past_question_1 = create_question(question_text='Past question 1.', days=-20)
+        create_choice(past_question_1, choice_text='Choice text 1.')
+        past_question_2 = create_question(question_text='Past question 2.', days=-24)
+        create_choice(past_question_2, choice_text='Choice text 2.')
+        response = self.client.get(reverse('polls:index'))
+        self.assertQuerysetEqual(
+            response.context['latest_question_list'],
+            ['Past question 1.', 'Past question 2.']
+        )
+
+    def test_three_past_questions_one_without_choices(self):
+        """
+        The questions index page may display multiple questions.
+        There will be only questions with at least one choice.
+        """
+        past_question_1 = create_question(question_text='Past question 1.', days=-5)
+        create_choice(past_question_1, choice_text='Past question 1 choice 1.')
+        past_question_2 = create_question(question_text='Past question 2.', days=-6)
+        create_choice(past_question_2, choice_text='Past question 2 choice 1.')
+        past_question_3 = create_question(question_text='Past question 3.', days=-5)
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'],
@@ -113,6 +156,7 @@ class QuestionDetailViewTests(TestCase):
         returns a 404 not found.
         """
         future_question = create_question(question_text='Future question.', days=5)
+        create_choice(future_question, 'Choice text.')
         url = reverse('polls:detail', args=(future_question.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
@@ -123,9 +167,21 @@ class QuestionDetailViewTests(TestCase):
         displays the question's text.
         """
         past_question = create_question(question_text='Past Question.', days=-5)
+        create_choice(past_question, 'Choice text.')
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+    def test_past_question_without_choices(self):
+        """
+        The detail view of a question without any choice
+        and with a pub_date in the past
+        returns a 404 not found.
+        """
+        past_question = create_question(question_text='Past Question.', days=-5)
+        url = reverse('polls:detail', args=(past_question.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
 
 
 class QuestionResultsViewTests(TestCase):
@@ -135,6 +191,7 @@ class QuestionResultsViewTests(TestCase):
         returns a 404 not found.
         """
         future_question = create_question(question_text='Future question.', days=5)
+        create_choice(future_question, choice_text='Future choice.')
         url = reverse('polls:results', args=(future_question.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
@@ -145,6 +202,17 @@ class QuestionResultsViewTests(TestCase):
         returns the question vote results
         """
         past_question = create_question(question_text='Past question.', days=-5)
+        create_choice(past_question, choice_text='Past choice.')
         url = reverse('polls:results', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+    def test_past_question_without_choice(self):
+        """
+        The results view of a question with a pub_date in the past
+        and without any choices returns a 404 not found.
+        """
+        past_question = create_question(question_text='Past question.', days=-5)
+        url = reverse('polls:results', args=(past_question.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
