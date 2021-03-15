@@ -56,3 +56,5 @@ coverage html
 open htmlcov/index.html
 ```
 * Profit!
+
+* The end
