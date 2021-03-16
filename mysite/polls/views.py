@@ -18,7 +18,11 @@ class IndexView(generic.ListView):
         """
         return Question.objects.filter(
             pub_date__lte=timezone.now(),
-        ).order_by('-pub_date')[:5]
+            choice__isnull=False,
+        ) \
+            .annotate(Count('choice')) \
+            .filter(choice__count__gte=0) \
+            .order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
@@ -30,8 +34,11 @@ class DetailView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(
-            pub_date__lte=timezone.now()
-        )
+            pub_date__lte=timezone.now(),
+            choice__isnull=False,
+        ) \
+            .annotate(Count('choice')) \
+            .filter(choice__count__gte=0)
 
 
 class ResultsView(generic.DetailView):
@@ -43,8 +50,11 @@ class ResultsView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(
-            pub_date__lte=timezone.now()
-        )
+            pub_date__lte=timezone.now(),
+            choice__isnull=False,
+        ) \
+            .annotate(Count('choice')) \
+            .filter(choice__count__gte=0)
 
 
 class ResultsVotesView(generic.View):
