@@ -1,10 +1,12 @@
 {% extends 'polls/base.html' %}
 
 {% block content %}
+    <h1>Recent polls list.</h1>
+    <hr>
     {% if latest_question_list %}
-        <ul>
+        <ul class="list-group list-group-flush">
             {% for question in latest_question_list %}
-                <li>
+                <li class="list-group-item">
                     <a href={%  url 'polls:detail' question.id %}>
                         {{ question.question_text }}
                     </a>
