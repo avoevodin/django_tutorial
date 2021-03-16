@@ -19,7 +19,7 @@ source venv/bin/activate
 ```
 * Install requirements.txt
 ```shell
-pip3 install -m requirements.txt
+pip install -r requirements.txt
 ```
 * Open django-project directory:
 ```shell
