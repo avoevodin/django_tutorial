@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.db.models import F, Count
 from django.views import generic
 from django.utils import timezone
+from django.utils.translation import gettext as _
 
 
 class IndexView(generic.ListView):
@@ -66,7 +67,7 @@ class ResultsVotesView(generic.View):
             # Redisplay the question voting form.
             return render(request, 'polls/detail.html', {
                 'question': question,
-                'error_message': "You didn't select a choice.",
+                'error_message': _("You didn't select a choice."),
             })
         else:
             selected_choice.votes = F('votes') + 1

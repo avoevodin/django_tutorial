@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-17 10:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: mysite/settings.py:124
+msgid "English"
+msgstr "Английский"
+
+#: mysite/settings.py:125
+msgid "Russian"
+msgstr "Русский"
+
+#: polls/apps.py:7
+msgid "polls"
+msgstr "опросы"
+
+#: polls/models.py:8
+msgid "Question text"
+msgstr "Текст вопроса"
+
+#: polls/models.py:9
+msgid "Publication date"
+msgstr "Дата публикации"
+
+#: polls/models.py:21
+msgid "Was published recently"
+msgstr "Опубликован недавно"
+
+#: polls/models.py:24 polls/models.py:29
+msgid "Question"
+msgstr "Вопрос"
+
+#: polls/models.py:25
+msgid "Questions"
+msgstr "Вопросы"
+
+#: polls/models.py:30
+msgid "Choice text"
+msgstr "Текст ответа"
+
+#: polls/models.py:31
+msgid "Votes"
+msgstr "Количество голосов"
+
+#: polls/models.py:40
+msgid "Choice"
+msgstr "Вариант ответа"
+
+#: polls/models.py:41
+msgid "Choices"
+msgstr "Варианты ответов"
+
+#: polls/templates/polls/base.html:9
+msgid "Polls"
+msgstr "Голосование"
+
+#: polls/templates/polls/detail.html:26
+msgid "Vote"
+msgstr "Проголосовать"
+
+#: polls/templates/polls/detail.html:29
+msgid "Back"
+msgstr "Назад"
+
+#: polls/templates/polls/index.html:6
+msgid "Recent polls list."
+msgstr "Список недавних вопросов."
+
+#: polls/templates/polls/index.html:19
+msgid "No polls are available."
+msgstr "Нет доступных воспросов."
+
+#: polls/templates/polls/results.html:19
+msgid "Vote again?"
+msgstr "Проголосовать еще раз?"
+
+#: polls/views.py:70
+msgid "You didn't select a choice."
+msgstr "Вы не выбрали вариант ответа."
