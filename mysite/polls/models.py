@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Question(models.Model):
-    question_text = models.CharField(max_length=200)
+    question_text = models.CharField(verbose_name=_("Question text"), max_length=200)
     pub_date = models.DateTimeField(_('Publication date'))
 
     def __str__(self):
@@ -18,7 +18,7 @@ class Question(models.Model):
         now = timezone.now()
         return now >= self.pub_date >= timezone.now() \
             - datetime.timedelta(days=1)
-    was_published_recently.short_description = 'Опубликовано недавно'
+    was_published_recently.short_description = _('Was published recently')
 
     class Meta:
         verbose_name = _("Question")
@@ -26,9 +26,9 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    question = models.ForeignKey(Question, verbose_name=_('Question'), on_delete=models.CASCADE)
+    choice_text = models.CharField(verbose_name=_('Choice text'), max_length=200)
+    votes = models.IntegerField(verbose_name=_('Votes'), default=0)
 
     def __str__(self):
         return "{}: {} ({})".format(

@@ -8,12 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-17 09:13+0000\n"
+"POT-Creation-Date: 2021-03-17 10:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
+"Language: ruMIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -28,21 +27,37 @@ msgstr "Английский"
 msgid "Russian"
 msgstr "Русский"
 
-#: polls/apps.py:9
+#: polls/apps.py:7
 msgid "polls"
 msgstr "опросы"
+
+#: polls/models.py:8
+msgid "Question text"
+msgstr "Текст вопроса"
 
 #: polls/models.py:9
 msgid "Publication date"
 msgstr "Дата публикации"
 
-#: polls/models.py:24
+#: polls/models.py:21
+msgid "Was published recently"
+msgstr "Опубликован недавно"
+
+#: polls/models.py:24 polls/models.py:29
 msgid "Question"
-msgstr "Опрос"
+msgstr "Вопрос"
 
 #: polls/models.py:25
 msgid "Questions"
-msgstr "Опросы"
+msgstr "Вопросы"
+
+#: polls/models.py:30
+msgid "Choice text"
+msgstr "Текст ответа"
+
+#: polls/models.py:31
+msgid "Votes"
+msgstr "Количество голосов"
 
 #: polls/models.py:40
 msgid "Choice"
