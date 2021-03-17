@@ -10,3 +10,4 @@ __pychache__/
 db.sqlite3
 /mysite/locale/en/LC_MESSAGES/django.mo
 /mysite/locale/ru/LC_MESSAGES/django.mo
+bd_dump.json

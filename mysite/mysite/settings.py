@@ -26,7 +26,9 @@ SECRET_KEY = 'wp3rav5h7uqmx@fpgxo65vdv7642t42zxz=^1hn5%=n13$*9ok'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*"
+]
 
 
 # Application definition
@@ -78,8 +80,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'polls',
+        'USER': 'polls',
+        'PASSWORD': 'pollssecret',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
