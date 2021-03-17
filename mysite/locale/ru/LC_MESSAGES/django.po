@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-17 06:06+0000\n"
+"POT-Creation-Date: 2021-03-17 09:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,28 +22,60 @@ msgstr ""
 
 #: mysite/settings.py:124
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: mysite/settings.py:125
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: polls/apps.py:9
 msgid "polls"
-msgstr ""
+msgstr "опросы"
 
 #: polls/models.py:9
 msgid "Publication date"
-msgstr ""
+msgstr "Дата публикации"
+
+#: polls/models.py:24
+msgid "Question"
+msgstr "Опрос"
+
+#: polls/models.py:25
+msgid "Questions"
+msgstr "Опросы"
+
+#: polls/models.py:40
+msgid "Choice"
+msgstr "Вариант ответа"
+
+#: polls/models.py:41
+msgid "Choices"
+msgstr "Варианты ответов"
+
+#: polls/templates/polls/base.html:9
+msgid "Polls"
+msgstr "Голосование"
 
 #: polls/templates/polls/detail.html:26
 msgid "Vote"
-msgstr ""
+msgstr "Проголосовать"
 
 #: polls/templates/polls/detail.html:29
 msgid "Back"
-msgstr ""
+msgstr "Назад"
+
+#: polls/templates/polls/index.html:6
+msgid "Recent polls list."
+msgstr "Список недавних вопросов."
+
+#: polls/templates/polls/index.html:19
+msgid "No polls are available."
+msgstr "Нет доступных воспросов."
+
+#: polls/templates/polls/results.html:19
+msgid "Vote again?"
+msgstr "Проголосовать еще раз?"
 
 #: polls/views.py:70
 msgid "You didn't select a choice."
-msgstr ""
+msgstr "Вы не выбрали вариант ответа."

@@ -18,6 +18,11 @@ class Question(models.Model):
         now = timezone.now()
         return now >= self.pub_date >= timezone.now() \
             - datetime.timedelta(days=1)
+    was_published_recently.short_description = 'Опубликовано недавно'
+
+    class Meta:
+        verbose_name = _("Question")
+        verbose_name_plural = _("Questions")
 
 
 class Choice(models.Model):
@@ -30,3 +35,7 @@ class Choice(models.Model):
             self.question, self.choice_text,
             self.id
         )
+
+    class Meta:
+        verbose_name = _("Choice")
+        verbose_name_plural = _("Choices")

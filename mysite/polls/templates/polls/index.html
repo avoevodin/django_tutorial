@@ -1,7 +1,9 @@
 {% extends 'polls/base.html' %}
 
+{% load i18n %}
+
 {% block content %}
-    <h1>Recent polls list.</h1>
+    <h1>{% translate "Recent polls list." %}</h1>
     <hr>
     {% if latest_question_list %}
         <ul class="list-group list-group-flush">
@@ -14,6 +16,6 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>No polls are available.</p>
+        <p>{% translate "No polls are available." %}</p>
     {% endif %}
 {% endblock %}
