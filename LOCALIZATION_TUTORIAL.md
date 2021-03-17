@@ -28,7 +28,7 @@
 ./manage.py makemessages -l en
 
 ```
-* Correct descriptions "Language" in the .po files.
+* Correct descriptions "Language: \n" to "Language: en\n" in the .po files.
 * Create translations in modules:
     1. in views:
     ```python
