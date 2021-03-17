@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-17 10:22+0000\n"
+"POT-Creation-Date: 2021-03-17 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,10 @@ msgstr "Английский"
 msgid "Russian"
 msgstr "Русский"
 
+#: polls/admin.py:37
+msgid "Date information"
+msgstr "Информация о дате"
+
 #: polls/apps.py:7
 msgid "polls"
 msgstr "опросы"
@@ -40,58 +44,62 @@ msgstr "Текст вопроса"
 msgid "Publication date"
 msgstr "Дата публикации"
 
-#: polls/models.py:21
+#: polls/models.py:23
 msgid "Was published recently"
 msgstr "Опубликован недавно"
 
-#: polls/models.py:24 polls/models.py:29
+#: polls/models.py:26 polls/models.py:31
 msgid "Question"
 msgstr "Вопрос"
 
-#: polls/models.py:25
+#: polls/models.py:27
 msgid "Questions"
 msgstr "Вопросы"
 
-#: polls/models.py:30
+#: polls/models.py:32
 msgid "Choice text"
 msgstr "Текст ответа"
 
-#: polls/models.py:31
+#: polls/models.py:33
 msgid "Votes"
 msgstr "Количество голосов"
 
-#: polls/models.py:40
+#: polls/models.py:42
 msgid "Choice"
 msgstr "Вариант ответа"
 
-#: polls/models.py:41
+#: polls/models.py:43
 msgid "Choices"
 msgstr "Варианты ответов"
-
-#: polls/templates/polls/base.html:9
-msgid "Polls"
-msgstr "Голосование"
-
-#: polls/templates/polls/detail.html:26
-msgid "Vote"
-msgstr "Проголосовать"
-
-#: polls/templates/polls/detail.html:29
-msgid "Back"
-msgstr "Назад"
-
-#: polls/templates/polls/index.html:6
-msgid "Recent polls list."
-msgstr "Список недавних вопросов."
-
-#: polls/templates/polls/index.html:19
-msgid "No polls are available."
-msgstr "Нет доступных воспросов."
-
-#: polls/templates/polls/results.html:19
-msgid "Vote again?"
-msgstr "Проголосовать еще раз?"
 
 #: polls/views.py:70
 msgid "You didn't select a choice."
 msgstr "Вы не выбрали вариант ответа."
+
+#: templates/admin/base_site.html:6 templates/admin/base_site.html:10
+msgid "Polls Administration"
+msgstr "Администрирование опросов"
+
+#: templates/polls/base.html:9
+msgid "Polls"
+msgstr "Голосование"
+
+#: templates/polls/detail.html:26
+msgid "Vote"
+msgstr "Проголосовать"
+
+#: templates/polls/detail.html:29
+msgid "Back"
+msgstr "Назад"
+
+#: templates/polls/index.html:6
+msgid "Recent polls list."
+msgstr "Список недавних вопросов."
+
+#: templates/polls/index.html:19
+msgid "No polls are available."
+msgstr "Нет доступных воспросов."
+
+#: templates/polls/results.html:19
+msgid "Vote again?"
+msgstr "Проголосовать еще раз?"

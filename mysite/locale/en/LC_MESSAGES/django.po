@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-17 10:22+0000\n"
+"POT-Creation-Date: 2021-03-17 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,10 @@ msgstr "English"
 msgid "Russian"
 msgstr "Russian"
 
+#: polls/admin.py:37
+msgid "Date information"
+msgstr "Date information"
+
 #: polls/apps.py:7
 msgid "polls"
 msgstr "polls"
@@ -38,58 +42,62 @@ msgstr "Question text"
 msgid "Publication date"
 msgstr "Publication date"
 
-#: polls/models.py:21
+#: polls/models.py:23
 msgid "Was published recently"
 msgstr "Was published recently"
 
-#: polls/models.py:24 polls/models.py:29
+#: polls/models.py:26 polls/models.py:31
 msgid "Question"
 msgstr "Question"
 
-#: polls/models.py:25
+#: polls/models.py:27
 msgid "Questions"
 msgstr "Questions"
 
-#: polls/models.py:30
+#: polls/models.py:32
 msgid "Choice text"
 msgstr "Choice text"
 
-#: polls/models.py:31
+#: polls/models.py:33
 msgid "Votes"
 msgstr "Votes"
 
-#: polls/models.py:40
+#: polls/models.py:42
 msgid "Choice"
 msgstr "Choice"
 
-#: polls/models.py:41
+#: polls/models.py:43
 msgid "Choices"
 msgstr "Choices"
-
-#: polls/templates/polls/base.html:9
-msgid "Polls"
-msgstr "Polls"
-
-#: polls/templates/polls/detail.html:26
-msgid "Vote"
-msgstr "Vote"
-
-#: polls/templates/polls/detail.html:29
-msgid "Back"
-msgstr "Back"
-
-#: polls/templates/polls/index.html:6
-msgid "Recent polls list."
-msgstr "Recent polls list."
-
-#: polls/templates/polls/index.html:19
-msgid "No polls are available."
-msgstr "No polls are available."
-
-#: polls/templates/polls/results.html:19
-msgid "Vote again?"
-msgstr "Vote again?"
 
 #: polls/views.py:70
 msgid "You didn't select a choice."
 msgstr "You didn't select a choice."
+
+#: templates/admin/base_site.html:6 templates/admin/base_site.html:10
+msgid "Polls Administration"
+msgstr "Polls Administration"
+
+#: templates/polls/base.html:9
+msgid "Polls"
+msgstr "Polls"
+
+#: templates/polls/detail.html:26
+msgid "Vote"
+msgstr "Vote"
+
+#: templates/polls/detail.html:29
+msgid "Back"
+msgstr "Back"
+
+#: templates/polls/index.html:6
+msgid "Recent polls list."
+msgstr "Recent polls list."
+
+#: templates/polls/index.html:19
+msgid "No polls are available."
+msgstr "No polls are available."
+
+#: templates/polls/results.html:19
+msgid "Vote again?"
+msgstr "Vote again?"
