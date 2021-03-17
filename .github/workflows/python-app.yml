@@ -34,5 +34,5 @@ jobs:
     - name: Test with unittest
       run: |
         cd mysite
-        coverage run manage.py test polls --keepdb
+        coverage run manage.py test --keepdb polls
         coverage report --show-missing --fail-under=100
