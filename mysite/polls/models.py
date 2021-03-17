@@ -1,11 +1,12 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('Publication date')
+    pub_date = models.DateTimeField(_('Publication date'))
 
     def __str__(self):
         return "{}: {}".format(self.id, self.question_text)

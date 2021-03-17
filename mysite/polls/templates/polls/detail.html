@@ -1,3 +1,5 @@
+{% load i18n %}
+
 {% extends 'polls/base.html' %}
 
 {% block content %}
@@ -21,8 +23,8 @@
         </div>
     {% endfor %}
     <br>
-    <button type="submit" class="btn btn-primary" value="Vote">Vote</button>
+    <button type="submit" class="btn btn-primary" value="Vote">{% translate "Vote" %}</button>
     </form>
     <br>
-    <a class="btn btn-link" href="{% url 'polls:index' %}">Back</a>
+    <a class="btn btn-link" href="{% url 'polls:index' %}">{% translate "Back" %}</a>
 {% endblock %}
