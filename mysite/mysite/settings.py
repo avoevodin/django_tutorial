@@ -90,6 +90,25 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'polls',
+        'USER': 'polls',
+        'PASSWORD': 'pollssecret',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+    'dynamic_data': {
+        'ENGINE': 'sqlite3',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'TEST': {
+               'NAME': 'auto_tests'
+        }
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
