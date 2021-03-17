@@ -9,12 +9,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  registry: polls_registry
-  DB_HOST: localhost
-  DB_USERNAME: postgres
-  DB_PASSWORD: postgres
-
 jobs:
   build:
 
@@ -34,5 +28,5 @@ jobs:
     - name: Test with unittest
       run: |
         cd mysite
-        coverage run manage.py test --keepdb polls
+        coverage run manage.py test polls
         coverage report --show-missing --fail-under=100
