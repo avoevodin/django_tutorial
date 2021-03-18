@@ -25,6 +25,34 @@ pip install -r requirements.txt
 ```shell
 cd mysite
 ```
+* Create [docker_instance](DOCKER_TUTORIAL.md) with postgresql DB
+* Create .env file
+```shell
+cat > .env << __EOF__ # __EOF__ is an example of delimiter, read heredoc
+DATABASE_ENGINE=django.db.backends.postgresql
+DATABASE_HOST=localhost
+DATABASE_NAME=polls
+DATABASE_PASSWORD=pollssecret
+DATABASE_PORT=5432
+DATABASE_USER=polls
+__EOF__
+```
+* Example of heredoc
+```shell
+psql -U polls -d polls -h localhost << __SQL__
+select * from django_content_type;
+__SQL__
+```
+* Export variables
+```shell
+export $(cat .env)
+```
+* Copy exported vars to config of mysite
+* Copy exported vars to config terminal in the PyCharm
+> Preferences/Tools/Terminal/Environment variables
+* Copy exported vars to config of Django and Python consoles
+> Preferences/Build, Execution, Deployment/Console/Python console/Environment variables
+> <br/>Preferences/Build, Execution, Deployment/Console/Django console/Environment variables 
 * Migrate:
 ```shell
 python3 manage.py migrate

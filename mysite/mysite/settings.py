@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import sys
+from os import environ as env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,17 +80,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'polls',
-        'USER': 'polls',
-        'PASSWORD': 'pollssecret',
-        'HOST': 'localhost',
-        'PORT': '5432',
+if env.get('DATABASE_ENGINE') == 'django.db.backends.postgresql':
+    DATABASES = {
+        'default': {
+            'ENGINE': env.get('DATABASE_ENGINE', 'django.db.backends.postgresql'),
+            'NAME': env.get('DATABASE_NAME', 'polls'),
+            'USER': env.get('DATABASE_USER', 'polls'),
+            'PASSWORD': env.get('DATABASE_PASSWORD', ''),
+            'HOST': env.get('DATABASE_HOST', 'localhost'),
+            'PORT': env.get('DATABASE_PORT', '5432'),
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': env.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
+            'NAME': env.get('DATABASE_NAME', BASE_DIR / 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -136,9 +144,3 @@ LANGUAGES = [
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase'
-    }
