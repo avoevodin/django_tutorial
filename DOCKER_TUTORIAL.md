@@ -5,7 +5,7 @@
 * Create an account or sing in the Docker Hub
 > https://hub.docker.com
 * Download the image of Postgres. An alpine version of OS Linux is lighter
-than simple version of the image.
+than a simple version of the image.
 ```shell
 docker pull postgres:13.2-alpine
 ```
@@ -34,6 +34,10 @@ docker run -d --hostname polls-postgres \
   -e POSTGRES_DB=polls \
   postgres:13.2-alpine
 ```
+> -d - start docker as a daemon
+> <br/>-p - local port and container port
+> <br/>-e - environment variables
+> <br/>postgres:13.2-alpine - name of the run image.
 * Look at the container's logs
 ```shell
 docker logs polls-postgres
