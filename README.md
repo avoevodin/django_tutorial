@@ -28,20 +28,16 @@ cd mysite
 * Create [docker_instance](DOCKER_TUTORIAL.md) with postgresql DB
 * Create .env file
 ```shell
-cat > .env << __EOF__ # __EOF__ is an example of delimiter, read heredoc
+cat > .env << __EOF__
 DATABASE_ENGINE=django.db.backends.postgresql
 DATABASE_HOST=localhost
 DATABASE_NAME=polls
 DATABASE_PASSWORD=pollssecret
 DATABASE_PORT=5432
 DATABASE_USER=polls
+POLLS_SECRET_KEY=test_secret_key
+DJANGO_DEBUG=True
 __EOF__
-```
-* Example of heredoc
-```shell
-psql -U polls -d polls -h localhost << __SQL__
-select * from django_content_type;
-__SQL__
 ```
 * Export variables
 ```shell
