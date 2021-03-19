@@ -1,4 +1,4 @@
-# Tutorial for Django framework
+# Tutorial for the Django framework
 
 ## Install the app:
 * Clone repository:
@@ -43,15 +43,17 @@ __EOF__
 ```shell
 export $(cat .env)
 ```
-* Copy exported vars to config of mysite
-* Copy exported vars to config terminal in the PyCharm
-> Preferences/Tools/Terminal/Environment variables
-* Copy exported vars to config of Django and Python consoles
-> Preferences/Build, Execution, Deployment/Console/Python console/Environment variables
-> <br/>Preferences/Build, Execution, Deployment/Console/Django console/Environment variables 
 * Migrate:
 ```shell
-python3 manage.py migrate
+python3 manage.py migrate --no-input
+```
+* Compile messages
+```shell
+python3 manage.py compilemessages --no-input
+```
+* Collect static
+```shell
+python3 manage.py collectstatic --no-input
 ```
 * Create superuser
 ```shell
@@ -62,7 +64,7 @@ python3 manage.py createsuperuser
     2. Point paths to django-project and its settings.
     3. In mysite/settings.py configure ALLOWED_HOSTS with '*',
         if it hasn't been done before.
-* Run server in console or in Framework. Ex:
+* Run server in a console or in a Framework. Ex:
     ```shell
     python3 manage.py runserver 0:8000
     ```

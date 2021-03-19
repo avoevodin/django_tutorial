@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.get('POLLS_SECRET_KEY', 'test_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(env.get('DJANGO_DEBUG', False))
+DEBUG = env.get('DJANGO_DEBUG', False) == 'True'
 
 ALLOWED_HOSTS = [
     "*"
@@ -144,3 +144,4 @@ LANGUAGES = [
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
