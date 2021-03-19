@@ -45,11 +45,11 @@ export $(cat .env)
 ```
 * Migrate:
 ```shell
-python3 manage.py migrate
+python3 manage.py migrate --no-input
 ```
 * Compile messages
 ```shell
-python3 manage.py compilemessages
+python3 manage.py compilemessages --no-input
 ```
 * Find static
 ```python
@@ -61,7 +61,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 ```
 * Collect static, add static directory to .gitignore
 ```shell
-python3 manage.py collectstatic
+python3 manage.py collectstatic --no-input
 ```
 * Create superuser
 ```shell
