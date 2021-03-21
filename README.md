@@ -81,4 +81,18 @@ coverage run --source='.' manage.py test polls
 coverage html
 open htmlcov/index.html
 ```
+## Docker
+* Create .env-docker file
+```shell
+cd mysite
+cat > .env-docker << __EOF__
+DATABASE_ENGINE=django.db.backends.postgresql
+DATABASE_HOST=polls-postgres
+DATABASE_NAME=polls
+DATABASE_PASSWORD=pollssecret
+DATABASE_PORT=5432
+DATABASE_USER=polls
+PS1=$'%n@%m %~ %% '
+__EOF__
+```
 * Profit!

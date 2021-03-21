@@ -13,3 +13,5 @@ db.sqlite3
 bd_dump.json
 /mysite/.env
 /mysite/static/
+/mysite/.env-docker
+/mysite/uwsgi-master.pid
