@@ -48,8 +48,8 @@ threads=%k
 module=mysite.wsgi:application
 master=True
 
-pidfile=%d/uwsgi-master.pid
-# denaemonize=%d/uwsgi.log
+pidfile=%duwsgi-master.pid
+# denaemonize=%duwsgi.log
 
 env DJANGO_DEBUG=False
 env DJANGO_SETTINGS_MODULE=mysite.settings
@@ -61,14 +61,21 @@ static-map=/static=%dstatic
 check-static=%dstatic
 static-expires=%dstatic/* 86400
 ```
->chdir - root of the project
-><br/>module - wsgi app settings
-><br/>env - env vars
-><br/>http-socket - http socket of the project
-><br/>wsgi-file - path of the wsgi file
+>http-socket - http socket of the project
+><br/>chdir - root of the project
 ><br/>workers - amount of run workers
+><br/>threads - amount of the threads in each worker 
+><br/>module - wsgi app settings
 ><br/>master - enable the master process
-><br/>pidfile=/tmp/project-master.pid - master process path
+><br/>pidfile - master process path
+><br/>denaemonize - run uwsgi as daemon with 
+> dumping logs in the selected path 
+><br/>env - env vars
+><br/>offload-threads - separate threads for static
+><br/>static-map - path for the static files
+><br/>check-static - check if the static files exist in 
+> the selected path
+><br/>static-expires - set expire date for static files
 * Run uwsgi with ini file
 ```shell
 uwsgi --ini uwsgi.ini
