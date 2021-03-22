@@ -1,0 +1,17 @@
+/.idea
+/htmlcov
+/mysite/htmlcov
+/venv
+.coverage
+.DS_Store
+*.pyc
+*.egg-info
+__pychache__/
+db.sqlite3
+/mysite/locale/en/LC_MESSAGES/django.mo
+/mysite/locale/ru/LC_MESSAGES/django.mo
+bd_dump.json
+/mysite/.env
+/mysite/static/
+/mysite/.env-docker
+/mysite/uwsgi-master.pid

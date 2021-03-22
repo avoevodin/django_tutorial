@@ -67,6 +67,10 @@ docker kill polls-postgres
 ```shell
 docker rm polls-postgres
 ```
+* Stop and Delete
+```shell
+docker rm -f polls-postgres
+```
 * Delete downloaded image
 ```shell
 docker rmi postgres:13.2-alpine

@@ -95,4 +95,4 @@ DATABASE_USER=polls
 PS1=$'%n@%m %~ %% '
 __EOF__
 ```
-* Profit!
+* run 
