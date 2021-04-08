@@ -53,7 +53,7 @@ python3 manage.py compilemessages --no-input
 ```
 * Find static
 ```python
-./manage.py findstatic
+./manage.py findstatic -v 3 test_file_name
 ```
 * Config settings.py for static Root
 ```python
