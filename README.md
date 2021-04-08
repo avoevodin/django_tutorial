@@ -49,7 +49,7 @@ python3 manage.py migrate --no-input
 ```
 * Compile messages
 ```shell
-python3 manage.py compilemessages --no-input
+python3 manage.py compilemessages
 ```
 * Collect static
 ```shell
