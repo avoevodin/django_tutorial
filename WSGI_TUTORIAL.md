@@ -49,7 +49,7 @@ module=mysite.wsgi:application
 master=True
 
 pidfile=%duwsgi-master.pid
-# denaemonize=%duwsgi.log
+# daemonize=%duwsgi.log
 
 env DJANGO_DEBUG=False
 env DJANGO_SETTINGS_MODULE=mysite.settings
@@ -68,7 +68,7 @@ static-expires=%dstatic/* 86400
 ><br/>module - wsgi app settings
 ><br/>master - enable the master process
 ><br/>pidfile - master process path
-><br/>denaemonize - run uwsgi as daemon with 
+><br/>daemonize - run uwsgi as daemon with 
 > dumping logs in the selected path 
 ><br/>env - env vars
 ><br/>offload-threads - separate threads for static
