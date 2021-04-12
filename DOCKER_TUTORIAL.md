@@ -95,7 +95,7 @@ psql -U polls -d polls -p 5432 -h localhost # example
 # or all DBs
 ./manage.py dumpdata -a
 # dump to the file with excludes from DB
-./manage.py dumpdata polls -e sessions contenttypes --indent=4 > bd_dump.json
+./manage.py dumpdata polls -e sessions -e contenttypes --indent=4 > bd_dump.json
 ```
 * Install the connector from python to postgres into our venv
 > https://docs.djangoproject.com/en/3.1/ref/settings/#databases
